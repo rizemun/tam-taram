@@ -1,13 +1,13 @@
 {
   "name": "static-project-template",
   "version": "0.0.1",
-  "description": "Simple project template with Webpack/WDS for static resources and PHP with built in server for templating.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp"
   },
-  "author": "Andrey Miskov",
+  "author": "Oggetto Web",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.11",
