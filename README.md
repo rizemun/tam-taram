@@ -57,9 +57,11 @@ https://youtu.be/6oPBFnsqJW8
 ```
 
 ## Требования
-* [БЭМ](https://ru.bem.info/methodology/).
+* Именование классов по [БЭМ](https://oggetto-academy.github.io/frontend-handbook/bem/).
 * Шаблонизатор [EJS](https://github.com/mde/ejs).
 * Из библиотек можно использовать только jQuery, [FancyBox](http://fancyapps.com/fancybox/3/) и [Slick](http://kenwheeler.github.io/slick/). Либо все напиать руками на чистом JS. Другие варианты не рассматриваются. Библиотеки уже подключены с CDN.
 * Адаптивность. В `src/less/media.less` есть переменные, используйте их либо добавьте свои. Используйте подход [mobile first](http://academy.oggettoweb.com/learn/rwd).
 * Код должен соответствовать стандартам. В проекте имеются `ESLint`, `Stylelint` и `Editorconfig`.
 * Макет должен хорошо работать в Хроме последней версии. Используйте [инструменты разработчика для эмуляции разных девайсов](https://developers.google.com/web/tools/chrome-devtools/device-mode/).
+
+Вам могут пригодиться материалы из [Учебника по фронтенд-разработке](https://oggetto-academy.github.io/frontend-handbook/).
