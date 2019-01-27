@@ -1,41 +1,238 @@
 @import 'media';
 
 // Код для примера
-body {
-    background: #ccc;
-}
-
-.menu {
+body, html {
     margin: 0;
     padding: 0;
-    text-align: center;
-    background: red; // red on small devices
+}
 
-    @media @tablet {
-        background: green; // green on medium devices
+body {
+    background: white;
+    min-height: 1000px;
+}
+
+.header {
+    width: 100%;
+    height: 120px;
+    &__top {
+        padding-top: 24px;
+        height: 46px;
+        background-color: #6917d2;
+    }
+    &__bottom {
+        position: relative;
+        height: 50px;
+
+        background-color: #212121;
+    }
+    &__hamburger {
+        float: left;
+        margin-left: 20px;
+        width: 32px;
+        height: 15px;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+    }
+    &__hamburger::after {
+        content: "";
+        width: 32px;
+        height: 0;
+        border-top: 2px solid white;
+        transform: translateY(7px);
+        position: absolute;
+    }
+    &__logo {
+        margin-top: 2px;
+        float: left;
+        margin-left: 14px;
+        background: url("/img/svg/logo.svg") no-repeat;
+        height: 15px;
+        width: 70%;
     }
 
-    @media @desktop {
-        background: blue; // blue on large devices
+    &__search {
+        position: absolute;
+        right: 20px;
+        top: 12px;
+        height: 24px;
+        width: 24px;
+        background: url("/img/svg/ico_search.svg") no-repeat;
     }
 
-    &__item {
+    &__nearest {
+        margin-left: 10px;
+        padding-top: 7px;
+    }
+}
+
+;
+
+.nearest {
+    color: white;
+    font-size: 14px;
+    width: 130px;
+    height: 36px;
+
+    &__text {
+        margin-left: 9px;
+        font-family: 'PT Sans Narrow', sans-serif;
+    }
+    &__more {
         display: inline-block;
+        background: url("/img/svg/ico_dropdown.svg") no-repeat;
+        height: 10px;
+        width: 11px;
+        transform: translateY(4px);
+
+    }
+    &__adress {
+        display: inline-block;
+        margin-left: 10px;
+        font-family: 'PT Sans', sans-serif;
+    }
+}
+
+.footer {
+    /* position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;*/
+
+    padding-top: 30px;
+    padding-left: 20px;
+    height: 294px;
+    background-color: #262626;
+    &__menu {
+        margin: 0;
+    }
+
+}
+
+.social {
+    padding: 0;
+    height: 20px;
+    &__item {
         list-style-type: none;
+        float: left;
+        margin-right: 20px;
     }
 
     &__link {
         color: #FFF;
     }
+    &__icon {
+        width: 20px;
+        height: 20px;
+        fill: #cdcdcd;
+    }
+}
 
-    // Bottom Menu
-    &_bottom { // BEM modifier example
-        background: green;
+.settings {
+    clear: both;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 11px;
+
+    &_first {
+        margin-top: 25px;
+    }
+    &__item {
+        color: #cdcdcd;
+
+    }
+    &__button {
+        color: white;
+    }
+}
+
+.bottom-menu {
+    padding: 0;
+    margin-top: 40px;
+    &__item {
+        float: left;
+        margin-right: 10px;
+        list-style-type: none;
+        font-family: 'PT Sans', sans-serif;
+        font-size: 11px;
+    }
+    &__link {
+        color: #979797;
+        text-decoration: none;
     }
 
-    &_bottom &__link {
-        color: #f00;
+}
+
+.main {
+    padding: 0 10px;
+}
+
+.unusual {
+    color: red;
+}
+
+.videos {
+
+    &__title {
+        margin-left: 5px;
+        margin-bottom: 5px;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 30px;
+        color: black;
+
     }
+
+    &__content {
+    }
+
+    &__image {
+        width: 100%;
+        margin-bottom: 48px;
+    }
+    &__more {
+        margin-left: 50%;
+        transform: translateX(-70px);
+        margin-top: -15px;
+        margin-bottom: 80px;
+        height: 44px;
+        width: 140px;
+        color: white;
+        font-size: 12px;
+        font-family: 'PT Sans Narrow', sans-serif;
+        line-height: 44px;
+        text-align: center;
+        background-color: #252525;
+    }
+
+    &__wrap {
+        position: relative;
+    }
+
+    &__play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform:translate(-26px, -26px);
+
+        height: 52px;
+        width: 52px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        background-color: rgba(0,0,0,.3);
+
+        &__triangle {
+            position: absolute;
+            left: 17px;
+            top: 12px;
+
+            width: 0;
+            height: 0;
+            border-left: 28px solid rgba(255,255,255,.9);;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+    }
+
 }
 
 

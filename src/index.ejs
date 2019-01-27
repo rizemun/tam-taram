@@ -9,37 +9,158 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" href="css/main.css">
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow:700" rel="stylesheet">
 </head>
 <body>
 
 <!-- Код для примера -->
 
 <% const menuItems = [
-    {title: 'HairCare', link: '#'},
-    {title: 'Color', link: '#'},
-    {title: 'Styling', link: '#'}
-    /* ... */
+    {title: 'PRIVACY POLICY', link: '#'},
+    {title: 'TERMS OF USE', link: '#'},
+    {title: 'CONTACT US', link: '#'},
+    {title: 'NEWSLETTER', link: '#'},
+    {title: 'SITEMAP', link: '#'}
 ]; %>
+
+<% const videos = [
+    {   title: "STEP BY STEP",
+        links: ["https://youtu.be/z8M0Fa1JVco",
+                "https://youtu.be/Wi2KcdoCuo4",
+                "https://youtu.be/8H6dYUgQKB8",
+                "https://youtu.be/PZjGrmHdFME",
+                "https://youtu.be/_wLGr24VeoI",
+                "https://youtu.be/DG4FAU5qmMY"]},
+    {   title: "CRAFT EDUCATION",
+        links: ["https://youtu.be/RmNWNLXmswk",
+                "https://youtu.be/-tztXOz8Vc0",
+                "https://youtu.be/kUfIVtyydgQ"]},
+    {   title: "INSPIRATION",
+        links: ["https://youtu.be/VmmwwzR536g",
+                "hhttps://youtu.be/vz0k8O-Ef9Y",
+                "https://youtu.be/6oPBFnsqJW8"]}
+];
+
+function createID(link){
+    return link.slice(-11);
+}
+%>
+
+
+
+
+
+
+
 
 <header class="header">
     <div class="header__top">
+        <div class="header__hamburger"></div>
+        <div class="header__logo"></div>
     </div>
     <div class="header__bottom">
-        <div class="menu header__menu">
-            <% menuItems.forEach((item) => { %>
-            <li class="menu__item"><a class="menu__link" href="<%= item.link; %>"><%= item.title %></a></li>
-            <% }) %>
+        <div class="header__search"></div>
+        <div class="nearest header__nearest ">
+            <span class="nearest__text">NEAREST SALON</span>
+            <span class="nearest__more"></span>
+            <span class="nearest__adress">Plush Salon 92101</span>
         </div>
     </div>
 </header>
 
-<img src="img/pic.png" alt="">
+
+<main class="main">
+
+    <% videos.forEach(item =>{%>
+    <article class="videos">
+        <div class="videos__title">
+            <% item.title.split(" ").forEach((word, i) =>{
+            if(i%2 === 1) { %>
+                <span class="unusual"> <%= word %> </span>
+            <% }
+            else { %>
+                <%= word %>
+            <%}
+            }) %>
+        </div>
+        <div class="videos__content">
+            <% item.links.forEach(video =>{ %>
+                <div class="videos__wrap">
+                    <img class = "videos__image" src = "https://img.youtube.com/vi/<%= createID(video) %>/hqdefault.jpg" alt="">
+                    <div class="videos__play">
+                        <div class="videos__play__triangle"></div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div class="videos__more">LOAD MORE</div>
+    </article>
+<% }) %>
+
+
+
+</main>
+
+
+
+
+
+
+
 <footer class="footer">
-    <div class="menu menu_bottom footer__menu">
-        <% menuItems.forEach((item) => { %>
-        <li class="menu__item"><a class="menu__link" href="<%= item.link; %>"><%= item.title %></a></li>
-        <% }) %>
+    <ul class="footer__menu social">
+        <li class="social__item">
+            <a href="#" class="social__link">
+                <svg class="social__icon" viewBox="0 0 42 90">
+                    <use xlink:href="./img/svg/ico_facebook.svg#Facebook_3_" />
+                </svg>
+            </a>
+        </li>
+        <li class="social__item">
+            <a href="#" class="social__link">
+                <svg class="social__icon" viewBox="0 0 90 62">
+                    <use xlink:href="./img/svg/ico_twitter.svg#Icons" />
+                </svg>
+            </a>
+        </li>
+        <li class="social__item">
+            <a href="#" class="social__link">
+                <svg class="social__icon" viewBox="0 0 90 90">
+                    <use xlink:href="./img/svg/ico_pinterest.svg#Icons" />
+                </svg>
+            </a>
+        </li>
+        <li class="social__item">
+            <a href="#" class="social__link">
+                <svg class="social__icon" viewBox="0 0 75 90">
+                    <use xlink:href="./img/svg/ico_youtube.svg#Icons" />
+                </svg>
+            </a>
+        </li>
+        <li class="social__item">
+            <a href="#" class="social__link">
+                <svg class="social__icon" viewBox="0 0 108 108.5">
+                    <use xlink:href="./img/svg/ico_instagram.svg#Layer_1" />
+                </svg>
+            </a>
+        </li>
+    </ul>
+
+    <div class="settings settings_first">
+        <span class="settings__item">LOCATION</span>
+        <span class="settings__button">UNITED STATES</span>
     </div>
+    <div class="settings">
+        <span class="settings__item">LANGUAGE</span>
+        <span class="settings__button">ENGLISH</span>
+    </div>
+
+    <ul class="footer__menu bottom-menu">
+        <% menuItems.forEach((item) => { %>
+        <li class="bottom-menu__item"><a class="bottom-menu__link" href="<%= item.link; %>"><%= item.title %></a></li>
+        <% }) %>
+    </ul>
 </footer>
 
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
