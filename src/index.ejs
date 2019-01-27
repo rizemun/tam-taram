@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" href="css/main.css">
 
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Sans+Narrow:700" rel="stylesheet">
 </head>
 <body>
 
@@ -72,6 +72,21 @@ function createID(link){
 
 <main class="main">
 
+    <article class="videos">
+        <div class="videos__title">VIDEOS</div>
+        <div class="videos__content ">
+            <img class = "videos__image videos__image_first-article" src = "https://img.youtube.com/vi/z8M0Fa1JVco/hqdefault.jpg" alt="">
+            <div class="videos__play">
+                <div class="videos__play__triangle"></div>
+            </div>
+        </div>
+        <span class="videos__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellensque lobortis nisl at ullamcorper egestas, felisadi piscing dolor, a interdum lorem urna quis magna.
+        </span>
+        <div class="videos__separator"></div>
+    </article>
+
+
     <% videos.forEach(item =>{%>
     <article class="videos">
         <div class="videos__title">
@@ -85,14 +100,15 @@ function createID(link){
             }) %>
         </div>
         <div class="videos__content">
-            <% item.links.forEach(video =>{ %>
+            <% item.links.forEach((video, i) =>{
+            if (i<3){ %>
                 <div class="videos__wrap">
                     <img class = "videos__image" src = "https://img.youtube.com/vi/<%= createID(video) %>/hqdefault.jpg" alt="">
                     <div class="videos__play">
                         <div class="videos__play__triangle"></div>
                     </div>
                 </div>
-            <% }) %>
+            <%} }) %>
         </div>
         <div class="videos__more">LOAD MORE</div>
     </article>
