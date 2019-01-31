@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" href="css/main.css">
 
@@ -22,37 +22,44 @@
     {title: 'CONTACT US', link: '#'},
     {title: 'NEWSLETTER', link: '#'},
     {title: 'SITEMAP', link: '#'}
-]; %>
-
-<% const videos = [
-    {   title: "STEP BY STEP",
-        links: ["https://youtu.be/z8M0Fa1JVco",
-                "https://youtu.be/Wi2KcdoCuo4",
-                "https://youtu.be/8H6dYUgQKB8",
-                "https://youtu.be/PZjGrmHdFME",
-                "https://youtu.be/_wLGr24VeoI",
-                "https://youtu.be/DG4FAU5qmMY"]},
-    {   title: "CRAFT EDUCATION",
-        links: ["https://youtu.be/RmNWNLXmswk",
-                "https://youtu.be/-tztXOz8Vc0",
-                "https://youtu.be/kUfIVtyydgQ"]},
-    {   title: "INSPIRATION",
-        links: ["https://youtu.be/VmmwwzR536g",
-                "hhttps://youtu.be/vz0k8O-Ef9Y",
-                "https://youtu.be/6oPBFnsqJW8"]}
 ];
 
-function createID(link){
+const socialItems = [
+    {icon: 'img/svg/ico_facebook.svg', link: '#'},
+    {icon: 'img/svg/ico_twitter.svg', link: '#'},
+    {icon: 'img/svg/ico_pinterest.svg', link: '#'},
+    {icon: 'img/svg/ico_youtube.svg', link: '#'},
+    {icon: 'img/svg/ico_instagram.svg', link: '#'}
+];
+
+const videos = [
+    {
+        title: "STEP <span class=\"unusual\">BY</span> STEP",
+        links: ["https://youtu.be/z8M0Fa1JVco",
+            "https://youtu.be/Wi2KcdoCuo4",
+            "https://youtu.be/8H6dYUgQKB8",
+            "https://youtu.be/PZjGrmHdFME",
+            "https://youtu.be/_wLGr24VeoI",
+            "https://youtu.be/DG4FAU5qmMY"]
+    },
+    {
+        title: "CRAFT <span class=\"unusual\">EDUCATION</span>",
+        links: ["https://youtu.be/RmNWNLXmswk",
+            "https://youtu.be/-tztXOz8Vc0",
+            "https://youtu.be/kUfIVtyydgQ"]
+    },
+    {
+        title: "INSPIRATION",
+        links: ["https://youtu.be/VmmwwzR536g",
+            "hhttps://youtu.be/vz0k8O-Ef9Y",
+            "https://youtu.be/6oPBFnsqJW8"]
+    }
+];
+
+function createID(link) {
     return link.slice(-11);
 }
 %>
-
-
-
-
-
-
-
 
 <header class="header">
     <div class="header__top">
@@ -75,7 +82,8 @@ function createID(link){
     <article class="videos">
         <div class="videos__title">VIDEOS</div>
         <div class="videos__content ">
-            <img class = "videos__image videos__image_first-article" src = "https://img.youtube.com/vi/z8M0Fa1JVco/hqdefault.jpg" alt="">
+            <img class="videos__image videos__image_first-article"
+                 src="https://img.youtube.com/vi/z8M0Fa1JVco/hqdefault.jpg" alt="">
             <div class="videos__play">
                 <div class="videos__play__triangle"></div>
             </div>
@@ -86,81 +94,39 @@ function createID(link){
         <div class="videos__separator"></div>
     </article>
 
-
-    <% videos.forEach(item =>{%>
+    <% videos.forEach(item =>{ %>
     <article class="videos">
         <div class="videos__title">
-            <% item.title.split(" ").forEach((word, i) =>{
-            if(i%2 === 1) { %>
-                <span class="unusual"> <%= word %> </span>
-            <% }
-            else { %>
-                <%= word %>
-            <%}
-            }) %>
+            <%- item.title %>
         </div>
         <div class="videos__content">
             <% item.links.forEach((video, i) =>{
-            if (i<3){ %>
-                <div class="videos__wrap">
-                    <img class = "videos__image" src = "https://img.youtube.com/vi/<%= createID(video) %>/hqdefault.jpg" alt="">
+            if (i < 3){ %>
+            <div class="videos__wrap">
+                <a href="<%= video %>" class="videos__link" data-fancybox>
+                    <img class="videos__image" src="https://img.youtube.com/vi/<%= createID(video) %>/hqdefault.jpg" alt="">
                     <div class="videos__play">
                         <div class="videos__play__triangle"></div>
                     </div>
-                </div>
-            <%} }) %>
+                </a>
+            </div>
+            <% } }) %>
         </div>
         <div class="videos__more">LOAD MORE</div>
     </article>
-<% }) %>
-
-
-
+    <% }) %>
 </main>
-
-
-
-
-
 
 
 <footer class="footer">
     <ul class="footer__menu social">
+        <% socialItems.forEach( item => { %>
         <li class="social__item">
-            <a href="#" class="social__link">
-                <svg class="social__icon" viewBox="0 0 42 90">
-                    <use xlink:href="./img/svg/ico_facebook.svg#Facebook_3_" />
-                </svg>
+            <a href="<%= item.link %>" class="social__link">
+                <%- include(item.icon) %>
             </a>
         </li>
-        <li class="social__item">
-            <a href="#" class="social__link">
-                <svg class="social__icon" viewBox="0 0 90 62">
-                    <use xlink:href="./img/svg/ico_twitter.svg#Icons" />
-                </svg>
-            </a>
-        </li>
-        <li class="social__item">
-            <a href="#" class="social__link">
-                <svg class="social__icon" viewBox="0 0 90 90">
-                    <use xlink:href="./img/svg/ico_pinterest.svg#Icons" />
-                </svg>
-            </a>
-        </li>
-        <li class="social__item">
-            <a href="#" class="social__link">
-                <svg class="social__icon" viewBox="0 0 75 90">
-                    <use xlink:href="./img/svg/ico_youtube.svg#Icons" />
-                </svg>
-            </a>
-        </li>
-        <li class="social__item">
-            <a href="#" class="social__link">
-                <svg class="social__icon" viewBox="0 0 108 108.5">
-                    <use xlink:href="./img/svg/ico_instagram.svg#Layer_1" />
-                </svg>
-            </a>
-        </li>
+        <% }) %>
     </ul>
 
     <div class="settings settings_first">
