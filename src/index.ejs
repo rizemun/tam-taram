@@ -82,10 +82,12 @@ function createID(link) {
     <article class="videos">
         <div class="videos__title">VIDEOS</div>
         <div class="videos__content ">
-            <img class="videos__image videos__image_first-article"
-                 src="https://img.youtube.com/vi/z8M0Fa1JVco/hqdefault.jpg" alt="">
-            <div class="videos__play">
-                <div class="videos__play__triangle"></div>
+            <div class="videos__wrap">
+                <img class="videos__image videos__image_first-article"
+                     src="https://img.youtube.com/vi/z8M0Fa1JVco/hqdefault.jpg" alt="">
+                <div class="videos__play">
+                    <div class="videos__play__triangle"></div>
+                </div>
             </div>
         </div>
         <span class="videos__text">
@@ -100,8 +102,7 @@ function createID(link) {
             <%- item.title %>
         </div>
         <div class="videos__content">
-            <% item.links.forEach((video, i) =>{
-            if (i < 3){ %>
+            <% item.links.forEach((video, i) =>{{ %>
             <div class="videos__wrap">
                 <a href="<%= video %>" class="videos__link" data-fancybox>
                     <img class="videos__image" src="https://img.youtube.com/vi/<%= createID(video) %>/hqdefault.jpg" alt="">
