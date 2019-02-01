@@ -6,15 +6,18 @@ const rename = require('gulp-rename');
 const ejs = require('gulp-ejs');
 const gutil = require('gulp-util');
 
-browserSync.create();
 
-browserSync.init({
-    server: {
-        baseDir: 'dist'
-    },
-    files: [
-        'dist/**/*.*'
-    ]
+gulp.task('livereload', () => {
+    browserSync.create();
+
+    browserSync.init({
+        server: {
+            baseDir: 'dist'
+        },
+        files: [
+            'dist/**/*.*'
+        ]
+    });
 });
 
 gulp.task('styles', () => {
@@ -46,4 +49,5 @@ gulp.watch('src/**/*.ejs', ['html']);
 gulp.watch('src/img/**/*.*', ['img']);
 gulp.watch('src/js/**/*.*', ['js']);
 
-gulp.task('default', ['styles', 'html', 'img', 'js']);
+gulp.task('default', ['styles', 'html', 'img', 'js','livereload']);
+gulp.task('prod', ['styles', 'html', 'img', 'js']);
