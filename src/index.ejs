@@ -16,7 +16,23 @@
 
 <!-- Код для примера -->
 
-<% const menuItems = [
+
+
+
+
+<% const topMenuItems = [
+    {title: 'HAIRCARE', link: '#'},
+    {title: 'COLOR', link: '#'},
+    {title: 'STYLING', link: '#'},
+    {title: 'TEXTURE', link: '#'},
+    {title: 'GET INSPIRED', link: '#'},
+    {title: 'SOCIAL', link: '#'},
+    {title: 'NEWS', link: '#'},
+    {title: 'ABOUT', link: '#'},
+    {title: 'PROFFESIONAL', link: '#'}
+];
+
+const bottomMenuItems = [
     {title: 'PRIVACY POLICY', link: '#'},
     {title: 'TERMS OF USE', link: '#'},
     {title: 'CONTACT US', link: '#'},
@@ -63,7 +79,22 @@ function createID(link) {
 
 <header class="header">
     <div class="header__top">
-        <div class="header__hamburger"></div>
+        <nav class="header__menu menu-top">
+            <input type="checkbox" class="menu-top__checkbox" id="hamburger">
+            <label for="hamburger" class="menu-top__hamburger"></label>
+            <ul class="menu-top__list">
+                <% topMenuItems.forEach( item => { %>
+                <li class="menu-top__item">
+                    <a href="<%= item.href %>" class="menu-top__link">
+                        <%= item.title %>
+                    </a>
+                </li>
+                <% }) %>
+            </ul>
+        </nav>
+
+
+
         <div class="header__logo"></div>
     </div>
     <div class="header__bottom">
@@ -81,7 +112,7 @@ function createID(link) {
 
     <article class="videos">
         <div class="videos__title">VIDEOS</div>
-        <div class="videos__content ">
+        <div class="videos__content">
             <div class="videos__wrap">
                 <img class="videos__image videos__image_first-article"
                      src="https://img.youtube.com/vi/z8M0Fa1JVco/hqdefault.jpg" alt="">
@@ -101,7 +132,7 @@ function createID(link) {
         <div class="videos__title">
             <%- item.title %>
         </div>
-        <div class="videos__content">
+        <div class="videos__content videos__slick">
             <% item.links.forEach((video, i) =>{{ %>
             <div class="videos__wrap">
                 <a href="<%= video %>" class="videos__link" data-fancybox>
@@ -140,7 +171,7 @@ function createID(link) {
     </div>
 
     <ul class="footer__menu bottom-menu">
-        <% menuItems.forEach((item) => { %>
+        <% bottomMenuItems.forEach((item) => { %>
         <li class="bottom-menu__item"><a class="bottom-menu__link" href="<%= item.link; %>"><%= item.title %></a></li>
         <% }) %>
     </ul>

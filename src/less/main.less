@@ -25,22 +25,6 @@ body {
 
         background-color: #212121;
     }
-    &__hamburger {
-        float: left;
-        margin-left: 20px;
-        width: 32px;
-        height: 15px;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
-    }
-    &__hamburger::after {
-        content: "";
-        width: 32px;
-        height: 0;
-        border-top: 2px solid white;
-        transform: translateY(7px);
-        position: absolute;
-    }
     &__logo {
         margin-top: 2px;
         float: left;
@@ -63,9 +47,81 @@ body {
         margin-left: 10px;
         padding-top: 7px;
     }
+};
+
+.menu-top {
+
+    &__list {
+        display: none;
+
+        margin: 0;
+        padding: 0;
+
+        position: absolute;
+        left: 0;
+        top: 70px;
+
+        z-index: 1;
+    }
+
+    &__item {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        float: left;
+        width: 100%;
+        background-color: #212121;
+    }
+    &__link {
+        display: block;
+        font-family: 'PT Sans', sans-serif;
+        font-size: 20px;
+        line-height: 50px;
+        text-align: center;
+
+        height: 50px;
+        width: 100%;
+        color: white;
+
+        text-decoration: none;
+        transition: color .5s;
+
+    }
+    &__link:hover{
+        font-weight: 700;
+        color: #6917d2;
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__hamburger {
+        float: left;
+        margin-left: 20px;
+        width: 32px;
+        height: 15px;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+    }
+    &__hamburger::after {
+        content: "";
+        width: 32px;
+        height: 0;
+        border-top: 2px solid white;
+        transform: translateY(7px);
+        position: absolute;
+    }
+
+    &__checkbox:checked ~ &__list {
+        display: block;
+    }
+
+
+
+
 }
 
-;
 
 .nearest {
     color: white;
@@ -120,6 +176,10 @@ body {
         width: 20px;
         height: 20px;
         fill: #cdcdcd;
+    }
+
+    &__item:hover svg {
+        fill: white;
     }
 
     &__link {
@@ -196,10 +256,13 @@ body {
 
     &__content {
     }
+    &__content:not(.videos__slick) &__wrap  {
+        max-width: 400px;
+    }
 
     &__image {
         width: 100%;
-        max-width: 300px;
+        //max-width: 300px;
         margin-bottom: 50px;
     }
     &__image_first-article {
@@ -253,6 +316,12 @@ body {
 
 
     &__button {
+        display: none! important;
+
+        @media @tablet {
+            display: block;
+        }
+
         width: 20px;
         height: 20px;
         fill: black;

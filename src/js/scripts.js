@@ -25,10 +25,11 @@
 
 $(document).ready(function() {
 
-    $('.videos__content').slick({
+    $('.videos__slick').slick({
         infinite: false,
         slidesToShow: 3,
         slidesToScroll: 1,
+        vertical: false,
         arrows: true,
         nextArrow: '<svg class="videos__button videos__button_next"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>',
         prevArrow: '<svg class="videos__button videos__button_prev videos__button_inactive"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>',
@@ -37,6 +38,7 @@ $(document).ready(function() {
             {
                 breakpoint: 992,
                 settings: {
+                    vertical: false,
                     slidesToShow: 2,
                     slidesToScroll: 1,
                     infinite: true
@@ -45,7 +47,15 @@ $(document).ready(function() {
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 390,
+                settings: {
+                    vertical: true,
+                    slidesToShow: 3,
                     slidesToScroll: 1
                 }
             }
