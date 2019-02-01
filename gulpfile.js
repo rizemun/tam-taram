@@ -47,4 +47,3 @@ gulp.watch('src/img/**/*.*', ['img']);
 gulp.watch('src/js/**/*.*', ['js']);
 
 gulp.task('default', ['styles', 'html', 'img', 'js']);
-gulp.task('prod', ['styles', 'html', 'img', 'js']);
