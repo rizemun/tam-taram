@@ -1,6 +1,6 @@
 language: node_js # Для сборки нужен будет NodeJS
 node_js:
-  - stable # Выбираем последню стабильную версию NodeJS
+  - 6.11.4 # Выбираем последню стабильную версию NodeJS
 script:
   - npm start # Запускаем продакшен-сборку, скрипт из `package.json`
 deploy:

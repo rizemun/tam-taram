@@ -1,5 +1,5 @@
 {
-  "name": "static-project-template",
+  "name": "tam-taram-template",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,6 @@
   "devDependencies": {
     "browser-sync": "^2.18.11",
     "eslint": "^3.19.0",
-    "gulp": "3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-ejs": "^3.0.1",
     "gulp-rename": "^1.2.2",
