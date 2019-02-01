@@ -32,6 +32,11 @@
     {title: 'PROFFESIONAL', link: '#'}
 ];
 
+const breadcrumbItems = [
+    {title: 'HOME', link: "#"},
+    {title: 'VIDEOS', link: "#"}
+];
+
 const bottomMenuItems = [
     {title: 'PRIVACY POLICY', link: '#'},
     {title: 'TERMS OF USE', link: '#'},
@@ -93,8 +98,6 @@ function createID(link) {
             </ul>
         </nav>
 
-
-
         <div class="header__logo"></div>
     </div>
     <div class="header__bottom">
@@ -107,8 +110,31 @@ function createID(link) {
     </div>
 </header>
 
-
 <main class="main">
+
+    <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+        <% breadcrumbItems.forEach( (item, i) => {
+            if (i !== breadcrumbItems.length-1){ %>
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="<%= item.link %>">
+                    <%= item.title %>
+                </a>
+            </li>
+
+            <li class="breadcrumbs__item breadcrumbs__separator">/</li>
+
+            <% }
+            else {%>
+            <li class="breadcrumbs__item breadcrumbs__item_current">
+                <a class="breadcrumbs__link breadcrumbs__link_current " href="<%= item.link %>">
+                    <%= item.title %>
+                </a>
+            </li>
+        <% }}) %>
+        </ul>
+    </div>
+
 
     <article class="videos">
         <div class="videos__title">VIDEOS</div>
@@ -121,9 +147,9 @@ function createID(link) {
                 </div>
             </div>
         </div>
-        <span class="videos__text">
+        <div class="videos__text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellensque lobortis nisl at ullamcorper egestas, felisadi piscing dolor, a interdum lorem urna quis magna.
-        </span>
+        </div>
         <div class="videos__separator"></div>
     </article>
 
@@ -148,7 +174,6 @@ function createID(link) {
     </article>
     <% }) %>
 </main>
-
 
 <footer class="footer">
     <ul class="footer__menu social">
