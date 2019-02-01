@@ -30,6 +30,7 @@ $(document).ready(function() {
         slidesToShow: 3,
         slidesToScroll: 1,
         vertical: false,
+        //mobileFirst: true,
         arrows: true,
         nextArrow: '<svg class="videos__button videos__button_next"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>',
         prevArrow: '<svg class="videos__button videos__button_prev videos__button_inactive"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>',
@@ -53,13 +54,32 @@ $(document).ready(function() {
             },
             {
                 breakpoint: 390,
-                settings: {
-                    vertical: true,
-                    slidesToShow: 3,
-                    slidesToScroll: 1
-                }
+                settings: "unslick"
             }
         ]
     });
+
+
+    $('.videos__more').on('click', function(e){
+        this.style.height = 0;
+        const className = "videos__mobile-hidden";
+        const parent = $(this).parent();
+        const videos = parent.children()[1].children;
+
+
+        [].forEach.call(videos, function(video){
+            const $video = $(video);
+            if ($video.hasClass(className)){
+                $video.removeClass(className);
+            }
+        });
+
+    });
+
+
+
+
+
+
 
 });

@@ -16,10 +16,6 @@
 
 <!-- Код для примера -->
 
-
-
-
-
 <% const topMenuItems = [
     {title: 'HAIRCARE', link: '#'},
     {title: 'COLOR', link: '#'},
@@ -55,7 +51,7 @@ const socialItems = [
 
 const videos = [
     {
-        title: "STEP <span class=\"unusual\">BY</span> STEP",
+        title: "<span class=\"videos__title_narrow\">STEP <span class=\"unusual\">BY</span> STEP</span>",
         links: ["https://youtu.be/z8M0Fa1JVco",
             "https://youtu.be/Wi2KcdoCuo4",
             "https://youtu.be/8H6dYUgQKB8",
@@ -114,41 +110,42 @@ function createID(link) {
 
     <div class="breadcrumbs">
         <ul class="breadcrumbs__list">
-        <% breadcrumbItems.forEach( (item, i) => {
-            if (i !== breadcrumbItems.length-1){ %>
+            <% breadcrumbItems.forEach( (item, i) => {
+            if (i !== breadcrumbItems.length - 1){ %>
             <li class="breadcrumbs__item">
                 <a class="breadcrumbs__link" href="<%= item.link %>">
                     <%= item.title %>
                 </a>
             </li>
-
             <li class="breadcrumbs__item breadcrumbs__separator">/</li>
-
             <% }
-            else {%>
+            else { %>
             <li class="breadcrumbs__item breadcrumbs__item_current">
                 <a class="breadcrumbs__link breadcrumbs__link_current " href="<%= item.link %>">
                     <%= item.title %>
                 </a>
             </li>
-        <% }}) %>
+            <% }}) %>
         </ul>
     </div>
 
 
     <article class="videos">
-        <div class="videos__title">VIDEOS</div>
+        <div class="videos__title videos__title_top ">VIDEOS</div>
         <div class="videos__content">
             <div class="videos__wrap">
-                <img class="videos__image videos__image_first-article"
-                     src="https://img.youtube.com/vi/z8M0Fa1JVco/hqdefault.jpg" alt="">
-                <div class="videos__play">
-                    <div class="videos__play__triangle"></div>
-                </div>
+                <a href="https://youtu.be/z8M0Fa1JVco" class="videos__link" data-fancybox>
+                    <img class="videos__image videos__image_first-article"
+                         src="https://img.youtube.com/vi/z8M0Fa1JVco/mqdefault.jpg" alt="">
+                    <div class="videos__play">
+                        <div class="videos__play__triangle"></div>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="videos__text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellensque lobortis nisl at ullamcorper egestas, felisadi piscing dolor, a interdum lorem urna quis magna.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellensque lobortis nisl at ullamcorper egestas,
+            felisadi piscing dolor, a interdum lorem urna quis magna.
         </div>
         <div class="videos__separator"></div>
     </article>
@@ -159,18 +156,23 @@ function createID(link) {
             <%- item.title %>
         </div>
         <div class="videos__content videos__slick">
-            <% item.links.forEach((video, i) =>{{ %>
-            <div class="videos__wrap">
-                <a href="<%= video %>" class="videos__link" data-fancybox>
-                    <img class="videos__image" src="https://img.youtube.com/vi/<%= createID(video) %>/hqdefault.jpg" alt="">
-                    <div class="videos__play">
-                        <div class="videos__play__triangle"></div>
-                    </div>
-                </a>
+            <% item.links.forEach((video, i) =>{
+            if (i >= 3) { %>
+            <div class="videos__wrap videos__mobile-hidden">
+                <% } else { %>
+                <div class="videos__wrap">
+                    <% } %>
+                    <a href="<%= video %>" class="videos__link" data-fancybox>
+                        <img class="videos__image" src="https://img.youtube.com/vi/<%= createID(video) %>/mqdefault.jpg"
+                             alt="">
+                        <div class="videos__play">
+                            <div class="videos__play__triangle"></div>
+                        </div>
+                    </a>
+                </div>
+                <% } ) %>
             </div>
-            <% } }) %>
-        </div>
-        <div class="videos__more">LOAD MORE</div>
+            <div class="videos__more">LOAD MORE</div>
     </article>
     <% }) %>
 </main>
@@ -187,11 +189,11 @@ function createID(link) {
     </ul>
 
     <div class="settings settings_first">
-        <span class="settings__item">LOCATION</span>
+        <span class="settings__item">LOCATION:</span>
         <span class="settings__button">UNITED STATES</span>
     </div>
     <div class="settings">
-        <span class="settings__item">LANGUAGE</span>
+        <span class="settings__item">LANGUAGE:g</span>
         <span class="settings__button">ENGLISH</span>
     </div>
 

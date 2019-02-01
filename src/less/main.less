@@ -195,6 +195,7 @@ body {
      bottom: 0;
      left: 0;
      width: 100%;*/
+    margin-top: 20px;
     padding-top: 30px;
     padding-left: 20px;
     height: 294px;
@@ -211,11 +212,12 @@ body {
     &__item {
         list-style-type: none;
         float: left;
-        margin-right: 20px;
+        margin-right: 19px;
     }
 
     &__item svg {
-        width: 20px;
+        min-width: 20px;
+        max-width: 24px;
         height: 20px;
         fill: #cdcdcd;
     }
@@ -230,11 +232,14 @@ body {
 
 .settings {
     clear: both;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 11px;
+    margin-left: 6px;
+    font-family: 'PT Sans Bold', sans-serif;
+    font-size: 10px;
 
     &_first {
-        margin-top: 25px;
+        margin-top: 35px;
+        margin-bottom: 1px;
+
     }
     &__item {
         color: #cdcdcd;
@@ -247,7 +252,8 @@ body {
 
 .bottom-menu {
     padding: 0;
-    margin-top: 40px;
+    margin-top: 38px;
+    margin-left: 5px;
     &__item {
         float: left;
         margin-right: 10px;
@@ -273,13 +279,21 @@ body {
 .videos {
     padding-top: 5px;
     &__title {
-        margin: 0 0 12px -2px;
-        //margin-bottom: 5px;
-        font-family: 'PT Sans Bold', sans-serif;
+        margin: -2px 0 0 4px;
+        font-family: 'PT Sans', sans-serif;
         font-weight: 700;
-        font-size: 28px;
-        letter-spacing: -2px;
+        font-size: 30px;
         color: black;
+        //transform: scaleX(.85);
+    }
+    &__title_top {
+        font-family: 'PT Sans Bold', sans-serif;
+        margin: 0 0 12px -2px;
+        letter-spacing: -2px;
+        font-size: 28px;
+    }
+    &__title_narrow {
+        letter-spacing: -2px;
     }
 
     &__text {
@@ -309,7 +323,7 @@ body {
 
     &__image {
 
-        height: 152px;
+        min-height: 152px;
         width: 100%;
         //max-width: 300px;
         margin-bottom: 50px;
@@ -320,14 +334,14 @@ body {
 
     &__more {
         margin-left: 50%;
-        transform: translateX(-70px);
+        transform: translateX(-72px);
         margin-top: -15px;
         margin-bottom: 80px;
         height: 44px;
         width: 140px;
         color: white;
         font-size: 12px;
-        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'PT Sans', sans-serif;
         line-height: 44px;
         text-align: center;
         background-color: #252525;
@@ -363,6 +377,9 @@ body {
 
     }
 
+    &__mobile-hidden {
+        display: none;
+    }
 
     &__button {
         display: none! important;
