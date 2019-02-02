@@ -33,7 +33,7 @@ $(document).ready(function() {
         //mobileFirst: true,
         arrows: true,
         nextArrow: '<svg class="videos__button videos__button_next"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>',
-        prevArrow: '<svg class="videos__button videos__button_prev videos__button_inactive"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>',
+        prevArrow: '<svg class="videos__button videos__button_prev"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>',
 
         responsive: [
             {
@@ -42,7 +42,7 @@ $(document).ready(function() {
                     vertical: false,
                     slidesToShow: 2,
                     slidesToScroll: 1,
-                    infinite: true
+                    infinite: false
                 }
             },
             {
@@ -76,10 +76,5 @@ $(document).ready(function() {
 
     });
 
-
-
-
-
-
-
 });
+
