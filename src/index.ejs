@@ -97,8 +97,12 @@ function createID(link) {
         <div class="header__logo"></div>
     </div>
     <div class="header__bottom">
-        <div class="header__search"></div>
-        <form action="" class="search"></form>
+        <div class="header__search-open"></div>
+        <form action="" class="search">
+            <input type="search" class="search__field">
+            <input type="submit" class="search__submit">
+            <input type="button" class="search__form-closer">
+        </form>
 
 
 
@@ -137,7 +141,7 @@ function createID(link) {
     <article class="videos">
         <div class="videos__title videos__title_first-article ">VIDEOS</div>
         <div class="videos__content_first-article">
-            <div class="videos__wrap">
+            <div class="videos__wrap videos__wrap_first-article">
                 <a href="https://youtu.be/z8M0Fa1JVco" class="videos__link" data-fancybox>
                     <img class="videos__image videos__image_first-article"
                          src="https://img.youtube.com/vi/z8M0Fa1JVco/mqdefault.jpg" alt="">
@@ -181,7 +185,7 @@ function createID(link) {
 </main>
 
 <footer class="footer">
-    <ul class="footer__menu social">
+    <ul class="footer__menu footer__social social">
         <% socialItems.forEach( item => { %>
         <li class="social__item">
             <a href="<%= item.link %>" class="social__link">
