@@ -22,11 +22,17 @@
 
 
 $(document).ready(function () {
-
+    let slickLoaded = false;
     $(window).resize(function () {
         if (screen.width < 768) {
+            slickLoaded = false;
             return;
         }
+        if (slickLoaded) {
+            return;
+        }
+
+        slickLoaded = true;
 
         let prevArrow = '<svg class="videos__button videos__button_next"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>';
         let nextArrow = '<svg class="videos__button videos__button_prev"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>';
@@ -37,6 +43,7 @@ $(document).ready(function () {
 
                 vertical: false,
                 arrows: true,
+                infinite: false,
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 nextArrow: prevArrow,
@@ -44,7 +51,7 @@ $(document).ready(function () {
 
                 responsive: [
                     {
-                        breakpoint: 992,
+                        breakpoint: 1200,
                         settings: {
                             vertical: false,
                             slidesToShow: 2,
