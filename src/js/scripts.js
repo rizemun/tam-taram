@@ -22,46 +22,55 @@
 
 
 $(document).ready(function () {
-    let prevArrow = '<svg class="videos__button videos__button_next"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>';
-    let nextArrow = '<svg class="videos__button videos__button_prev"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>';
 
-    if (screen.width >= 768) {
+    $(window).resize(function () {
+        if (screen.width < 768) {
+            return;
+        }
 
-        $('.videos__slick').slick({
+        let prevArrow = '<svg class="videos__button videos__button_next"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>';
+        let nextArrow = '<svg class="videos__button videos__button_prev"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>';
 
-            vertical: false,
-            arrows: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            nextArrow: prevArrow,
-            prevArrow: nextArrow,
+        if (screen.width >= 768) {
 
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        vertical: false,
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        infinite: false
+            $('.videos__slick').slick({
+
+                vertical: false,
+                arrows: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                nextArrow: prevArrow,
+                prevArrow: nextArrow,
+
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            vertical: false,
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            infinite: false
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            infinite: false,
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: false,
+                        }
+                    },
+                    {
+                        breakpoint: 390,
+                        settings: "unslick"
                     }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        infinite: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false,
-                    }
-                },
-                {
-                    breakpoint: 390,
-                    settings: "unslick"
-                }
-            ]
-        });
-    }
+                ]
+            });
+
+
+        }
+    });
 
     $('.videos__more').on('click', function (e) {
         this.style.height = 0;
