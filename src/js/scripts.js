@@ -24,6 +24,12 @@
 $(document).ready(function () {
     let slickLoaded = false;
     $(window).resize(function () {
+        slick();
+    });
+
+    slick();
+
+    function slick() {
         if (screen.width < 768) {
             slickLoaded = false;
             return;
@@ -33,15 +39,10 @@ $(document).ready(function () {
         }
 
         slickLoaded = true;
-
         let prevArrow = '<svg class="videos__button videos__button_next"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>';
         let nextArrow = '<svg class="videos__button videos__button_prev"><use xlink:href="img/svg/ico_dropdown.svg#Layer_1"></svg>';
-
         if (screen.width >= 768) {
-
             $('.videos__slick').slick({
-
-                vertical: false,
                 arrows: true,
                 infinite: false,
                 slidesToShow: 3,
@@ -51,9 +52,8 @@ $(document).ready(function () {
 
                 responsive: [
                     {
-                        breakpoint: 1200,
+                        breakpoint: 1440,
                         settings: {
-                            vertical: false,
                             slidesToShow: 2,
                             slidesToScroll: 1,
                             infinite: false
@@ -74,10 +74,8 @@ $(document).ready(function () {
                     }
                 ]
             });
-
-
         }
-    });
+    };
 
     $('.videos__more').on('click', function (e) {
         this.style.height = 0;
@@ -85,14 +83,12 @@ $(document).ready(function () {
         const parent = $(this).parent();
         const videos = parent.children()[1].children;
 
-
         [].forEach.call(videos, function (video) {
             const $video = $(video);
             if ($video.hasClass(className)) {
                 $video.removeClass(className);
             }
         });
-
     });
 
 });
