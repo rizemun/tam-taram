@@ -77,11 +77,15 @@ body {
         height: 24px;
         width: 24px;
         background: url('../img/svg/ico_search.svg') no-repeat;
+        cursor: pointer;
         @media @tablet {
             top: -48px;
             right: 25px;
             height: 23px;
             width: 23px;
+        }
+        @media @large {
+            top: -38px;
         }
     }
 
@@ -117,7 +121,7 @@ body {
             width: 760px;
             //display: flex;
             //justify-content: center;
-            height: 43px;
+            gheight: 43px;
             // width: 790px;
             //margin-left: 50%;
             //transform: translateX(-50%);
@@ -172,8 +176,8 @@ body {
             font-weight: 400;
             padding-left: 15px;
             padding-right: 23px;
-            height: 43px;
-            line-height: 43px;
+            height: 41px;
+            line-height: 41px;
         }
 
         @media @large {
@@ -435,6 +439,8 @@ body {
         letter-spacing: .1px;
         width: 210px;
     }
+
+
     &__item {
         float: left;
         margin-right: 10px;
@@ -444,6 +450,11 @@ body {
         @media @large {
 
         }
+    }
+
+
+    &__item:hover &__link{
+        color: white;
     }
     &__link {
         color: #979797;
@@ -741,6 +752,10 @@ body {
         border-radius: 50%;
         background-color: rgba(0, 0, 0, .6);
 
+        border-color: rgba(0, 0, 0, .6);
+        transition:  border-color 1s,
+                        background-color 1s;
+
         @media @tablet {
             height: 76px;
             width: 76px;
@@ -768,6 +783,7 @@ body {
 
         &:hover {
             border: 2px solid white;
+            background-color: rgba(0, 0, 0, .7);
         }
         &:hover &__triangle {
             border-left-color: white;
